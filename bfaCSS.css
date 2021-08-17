@@ -1,0 +1,173 @@
+ form{
+                font-family: 'Lato', sans-serif;
+                font-size: 125%;
+                color: #344055;
+                border-radius: 10px;
+                background-color: #fbfafb;
+                padding: 20px;
+                margin: auto;
+                width: 1100px;
+                border: 65px solid #344055;
+            }
+            input{
+               position: absolute;
+               left: 400px;
+            }
+            select{
+                position: absolute;
+               left: 400px;
+            }
+            label{
+                position: absolute;
+                left: 400px;
+                text-align: justify;
+            }  
+            .radioText{
+                float: left;
+                left: 425px;
+                text-align: justify;
+            }
+            .radioText1{
+                float: left;
+                left: 475px;
+                text-align: justify;
+            }
+            .radio1{
+                float: left;
+                left: 450px;
+                text-align: justify;
+            }
+            .footRadio1{
+                float: left;
+                left: 485px;
+                text-align: justify;
+            }
+            .footRadio2{
+                float: left;
+                left: 585px;
+                text-align: justify;
+            }
+            .squatRadio1{
+                float: left;
+                left: 465px;
+                text-align: justify;
+            }
+            .footRadioText1{
+                float: left;
+                left: 510px;
+                text-align: justify;
+            }
+            .footRadioText2{
+                float: left;
+                left: 610px;
+                text-align: justify;
+            }
+            .squatRadioText1{
+                float: left;
+                left: 485px;
+                text-align: justify;
+            }
+            .squatRadio2{
+                float: left;
+                left: 550px;
+                text-align: justify;
+            }
+            .squatRadioText2{
+                float: left;
+                left: 570px;
+                text-align: justify;
+            }
+            .radioText2{
+                float: left;
+                left: 525px;
+                text-align: justify;
+            }
+            .radio2{
+                float: left;
+                left: 500px;
+                text-align: justify;
+            }
+            .checkText{
+                float: left;
+                left: 425px;
+                text-align: justify;
+            }
+            button{
+                color: black;
+            } 
+            #header{
+                position: relative;
+                left: 300px;
+                top: -88px;
+                text-align: justify;
+                }
+            .rightInput{
+                float: left;
+                left: 1000px;
+                text-align: justify; 
+            }
+            .rightRadioText{
+                float: left;
+                left: 1025px;
+                text-align: justify;
+            }
+             .rightRadioText1{
+                float: left;
+                left: 1075px;
+                text-align: justify;
+            }
+            .rightRadioRangeText1{
+                float: left;
+                left: 1100px;
+                text-align: justify;
+            }
+             .rightRadioText2{
+                float: left;
+                left: 1125px;
+                text-align: justify;
+            }
+      
+            .rightRadio1{
+                float: left;
+                left: 1050px;
+                text-align: justify;
+            } 
+            .rightRangeRadio1{
+                float: left;
+                left: 1075px;
+                text-align: justify;
+            } 
+            .rightRadio2{
+                float: left;
+                left: 1100px;
+                text-align: justify;
+            }
+            .centered{
+                position: relative; 
+                left: 30%;
+                transform: translateX(-50%);
+            }
+            
+            .flexibilityRadio1{
+                float: left;
+                left: 485px;
+                text-align: justify;
+            }
+            
+            .flexibilityRadioText1{
+                float: left;
+                left: 510px;
+                text-align: justify;
+            }
+            
+            .flexibilityRightRadio1{
+                float: left;
+                left: 1090px;
+                text-align: justify;
+            }
+            
+            .flexibilityRightRadioText1{
+                float: left;
+                left: 1115px;
+                text-align: justify;
+            }

@@ -1,0 +1,877 @@
+
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+    
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&amp;display=swap" rel="stylesheet">
+        <link href="bfaCSS.css" rel="stylesheet">
+        <script src="bfaJS.js"></script>
+    
+    
+        <form id="healthDemo">
+            <h2>Health Demo Form</h2><br>
+            <label for="firstName">Enter your First Name:</label><br>
+            <input type="text" id="firstName" onchange="validateFirstName()"><br><br>
+            
+            <label for="lastName">Enter your Last Name:</label><br>
+            <input type="text" id="lastName" onchange="validateLastName()"><br><br>
+            
+            <label for="DoB">Enter your age:</label><br>
+            <input type="number" id="age" onchange="updateGlobalAge()"><br><br>
+           
+            <label for="consent">The three questionnaires that you have been asked to answer may be used to assist in your healthcare.<br>
+                In addition, the questionnaires may be used in research to improve healthcare for all dancers.<br>
+                Any data from these questionnaires will be password protected and de-identified from your name.<br><br>
+                Do you consent for your data to be used for research?</label><br><br><br><br><br><br>
+            <input type="radio" id="noConsent" name="consent" value="No">
+            <label for="noConsent" class="radioText">No</label><br>
+            <input type="radio" id="yesConsent" name="consent" value="Yes">
+            <label for="yesConsent" class="radioText">Yes</label><br><br>
+            <label for="email">Enter your email address:</label><br>
+            <input type="email" id="email" onchange="validateEmail()"><br><br>
+            
+            <label for="sex">Please select your assigned sex at birth</label><br>
+            <select name="sex" id="sex" onchange="updateGlobalSex()">
+                <option value="Male"> Male </option>
+                <option value="Female"> Female </option>
+            </select><br><br>
+            
+            <label for="ethnicity">Please select your Ethnicity</label><br>
+            <select name="ethnicity" id="ethnicity" onchange="ethnicityOther()">
+                <option value="White"> White </option>
+                <option value="Black or African American"> Black or African American </option>
+                <option value="American Indian and Alaska Native"> American Indian and Alaska Native </option>
+                <option value="Asian"> Asian </option>
+                <option value="Hispanic">Hispanic</option>
+                <option value="Other">Other</option>
+            </select><br>
+            <input type="text" id="ethnicityOtherText" style="display: none">
+            <br><br>
+           
+            <label for="height">Enter your height (cm)</label><br>
+            <input type="number" id="height"><br><br>
+            
+            <label for="weight">Enter your weight (lbs)</label><br>
+            <input type="number" id="weight"><br><br>
+            
+            <label for="education">Select your Educations</label><br>
+            <input type="radio" name="education" value="High School" id="highSchool">
+            <label for="highSchool" class="radioText">High School</label><br>
+            <input type="radio" name="education" value="College" id="college">
+            <label for="college" class="radioText">College</label><br>
+            <input type="radio" name="education" value="Graduate School" id="graduateSchool">
+            <label for="graduateSchool" class="radioText">Graduate School</label><br><br>
+            <label for="dominantHand">Select your Dominant Hand</label><br>
+            <select id="dominantHand">
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+            </select><br><br>
+            <label for="generalHealth">Rate Present State of Health</label><br>
+            <input type="radio" name="healthState" id="excellent" value="Excellent">
+            <label for="excellent" class="radioText">Excellent</label><br>
+            <input type="radio" name="healthState" id="good" value="Good">
+            <label for="good" class="radioText">Good</label><br>
+            <input type="radio" name="healthState" id="fair" value="Fair">
+            <label for="fair" class="radioText">Fair</label><br>
+            <input type="radio" name="healthState" id="poor" value="Poor">
+            <label for="poor" class="radioText">Poor</label><br><br>
+            <label for="healthConditions">Please Check all Conditions that Apply to You</label><br>
+            <input type="checkbox" id="highBloodPressure" name="healthConditions">
+            <label for="highBloodPressure" class="checkText">High Blood Pressure</label><br>
+            <input type="checkbox" id="epilepsySeizures" name="healthConditions">
+            <label for="epilepsySeizures" class="checkText">Epilepsy/Seizures</label><br>
+            <input type="checkbox" id="dizzinessFainting" name="healthConditions">
+            <label for="dizzinessFainting" class="checkText">Dizziness/Fainting</label><br>
+            <input type="checkbox" id="scoliosis" name="healthConditions">
+            <label for="scoliosis" class="checkText">Scoliosis</label><br>
+            <input type="checkbox" id="shortnessOfBreath" name="healthConditions">
+            <label for="shortnessOfBreath" class="checkText">Shortness of Breath</label><br>
+            <input type="checkbox" id="depression" name="healthConditions">
+            <label for="depression" class="checkText">Depression</label><br>
+            <input type="checkbox" id="concussion" name="healthConditions">
+            <label for="concussion" class="checkText">Concussion</label><br>
+            <input type="checkbox" id="diabetes" name="healthConditions">
+            <label for="diabetes" class="checkText">Diabetes</label><br>
+            <input type="checkbox" id="heartDisease" name="healthConditions">
+            <label for="heartDisease" class="checkText">Heart Disease</label><br>
+            <input type="checkbox" id="cancer" name="healthConditions">
+            <label for="cancer" class="checkText">Cancer</label><br>
+            <input type="checkbox" id="stressFractures" name="healthConditions">
+            <label for="stressFractures" class="checkText">Stress Fractures</label><br>
+            <input type="checkbox" id="chestPain" name="healthConditions">
+            <label for="chestPain" class="checkText">Chest Pain</label><br>
+            <input type="checkbox" id="bipolarDisorder" name="healthConditions">
+            <label for="bipolarDisorder" class="checkText">Bipolar Disorder</label><br>
+            <input type="checkbox" id="asthma" name="healthConditions">
+            <label for="asthma" class="checkText">Asthma</label><br>
+            <input type="checkbox" id="arthritis" name="healthConditions">
+            <label for="arthritis" class="checkText">Arthritis</label><br>
+            <input type="checkbox" id="fatigueBox" name="healthConditions">
+            <label for="fatigueBox" class="checkText">Fatigue Associated with Exercise</label><br>
+            <input type="checkbox" id="thyroid" name="healthConditions">
+            <label for="thyroid" class="checkText">Thyroid Disease</label><br>
+            <input type="checkbox" id="migraines" name="healthConditions">
+            <label for="migraines" class="checkText">Migraines</label><br>
+            <input type="checkbox" id="visualProblems" name="healthConditions">
+            <label for="visualProblems" class="checkText">Visual Problems</label><br>
+            <input type="checkbox" id="stroke" name="healthConditions">
+            <label for="stroke" class="checkText">Stroke</label><br>
+            <input type="checkbox" id="heatStroke" name="healthConditions">
+            <label for="heatStroke" class="checkText">Heat Stroke</label><br>
+            <input type="checkbox" id="healthNone" name="healthConditions">
+            <label for="healthNone" class="checkText">None</label><br><br>
+            <label for="suddenDeath">Do you have any family members or relatives that died of heart problems or sudden death before age 50?</label><br>
+            <input type="radio" name="suddenDeath" id="SDYes" value="yes">
+            <label for="SDYes" class="radioText">Yes</label><br>
+            <input type="radio" name="suddenDeath" id="SDNo" value="no">
+            <label for="SDNo" class="radioText">No</label><br><br>
+            <label for="marfans">Does anyone in your family have Marfans syndrome?</label><br>
+            <input type="radio" name="marfans" id="marfansYes" value="yes">
+            <label for="marfansYes" class="radioText">Yes</label><br>
+            <input type="radio" name="marfans" id="marfansNo" value="no">
+            <label for="marfansNo" class="radioText">No</label><br><br>
+            <label for="chickenPox">Have you had Chicken pox, mumps, measles or rubella?</label><br>
+            <input type="radio" name="chickenPox" id="CPYes" value="yes">
+            <label for="CPYes" class="radioText">Yes</label><br>
+            <input type="radio" name="chickenPox" id="CPNo" value="no">
+            <label for="CPNo" class="radioText">No</label><br>
+            <input type="radio" name="chickenPox" id="CPUnsure" value="not sure">
+            <label for="CPUnsure" class="radioText">Not sure</label><br><br>
+            <label for="chickenPoxVaccine">Have you been vaccinated for the ones that you did not have as a child? </label><br>
+            <input type="radio" name="chickenPoxVaccine" id="CPVYes" value="yes">
+            <label for="CPVYes" class="radioText">Yes</label><br>
+            <input type="radio" name="chickenPoxVaccine" id="CPVNo" value="no">
+            <label for="CPVNo" class="radioText">No</label><br>
+            <input type="radio" name="chickenPoxVaccine" id="CPVUnsure" value="not sure">
+            <label for="CPVUnsure" class="radioText">Not sure</label><br><br>
+            <label for="vaccine">Are you up to date on your vaccines?</label><br>
+            <input type="radio" name="vaccine" id="VYes" value="yes">
+            <label for="VYes" class="radioText">Yes</label><br>
+            <input type="radio" name="vaccine" id="VNo" value="no">
+            <label for="VNo" class="radioText">No</label><br>
+            <input type="radio" name="vaccine" id="VUnsure" value="not sure">
+            <label for="VUnsure" class="radioText">Not sure</label><br><br> 
+            <label for="allergies">Do you have any allergies to medications, foods, or environmental agents? </label><br>
+            <input type="radio" name="allergies" id="allergyNo" value="no" onclick="allergiesSpecify()">
+            <label for="allergyNo" class="radioText">No</label><br>
+            <input type="radio" name="allergies" id="allergyYes" value="yes" onclick="allergiesSpecify()">
+            <label for="allergyYes" class="radioText">Yes</label><br>
+            <input type="text" name="allergies" id="allergiesText" style="display:none;"><br><br>
+           
+            <label for="needEpipen">Do you need an epi-pen for these allergies?</label><br>
+            <input type="radio" name="needEpipen" id="epiYes" value="yes">
+            <label for="epiYes" class="radioText">Yes</label><br>
+            <input type="radio" name="needEpipen" id="epiNo" value="no">
+            <label for="epiNo" class="radioText">No</label><br><br> 
+            <label for="haveEpipen">Do you have an epi-pen for these allergies?</label><br>
+            <input type="radio" name="haveEpipen" id="haveEpiYes" value="yes">
+            <label for="haveEpiYes" class="radioText">Yes</label><br>
+            <input type="radio" name="haveEpipen" id="haveEpiNo" value="no">
+            <label for="haveEpiNo" class="radioText">No</label><br><br> 
+            <label for="medication">Are you currently taking any prescription medication?</label><br>
+            <input type="radio" name="medication" id="medicationNo" value="no" onclick="medicationSpecify()">
+            <label for="medicationNo" class="radioText">No</label><br>
+            <input type="radio" name="medication" id="medicationYes" value="yes" onclick="medicationSpecify()">
+            <label for="medicationYes" class="radioText">Yes</label><br>
+            <input type="text" name="medication" id="medicationText" style="display:none;"><br><br>
+            
+            <label for="nonMedication">Do you regularly take any non-prescription medications, vitamins, supplements?</label><br>
+            <input type="radio" name="nonMedication" id="nonMedicationNo" value="no" onclick="nonMedicationSpecify()">
+            <label for="nonMedicationNo" class="radioText">No</label><br>
+            <input type="radio" name="nonMedication" id="nonMedicationYes" value="yes" onclick="nonMedicationSpecify()">
+            <label for="nonMedicationYes" class="radioText">Yes</label><br>
+            <input type="text" name="nonMedication" id="nonMedicationText" style="display:none;"><br><br>
+            
+            <label for="danceHistory">Dance/Performance History</label><br>
+            <input type="checkbox" id="historyStudent" name="danceHistory" value="Student">
+            <label for="historyStudent" class="checkText">Student</label><br>
+            <input type="checkbox" id="historyCorpsDancer" name="danceHistory" value="Corps Dancer">
+            <label for="historyCorpsDancer" class="checkText">Corps Dancer</label><br>
+            <input type="checkbox" id="historySoloist" name="danceHistory" value="Soloist">
+            <label for="historySoloist" class="checkText">Soloist</label><br>
+            <input type="checkbox" id="historyPrincipalDancer" name="danceHistory" value="Principal Dancer">
+            <label for="historyPrincipalDancer" class="checkText">Principal Dancer</label><br>
+            <input type="checkbox" id="historyGuestArtist" name="danceHistory" value="Guest Artist">
+            <label for="historyGuestArtist" class="checkText">Guest Artist</label><br>
+            <input type="checkbox" id="historyTeacher" name="danceHistory" value="Teacher">
+            <label for="historyTeacher" class="checkText">Teacher</label><br>
+            <input type="checkbox" id="historyChoreographer" name="danceHistory" value="Choreographer">
+            <label for="historyChoreographer" class="checkText">Choreographer</label><br>
+            <input type="checkbox" id="historyOther" name="danceHistory" value="Other" onclick="danceHistoryOther()">
+            <label for="historyOther" class="checkText">Other</label><br>
+            <input type="text" name="nonMedication" id="historyOtherText" style="display:none;"><br><br>
+           
+            <label for="typeOfWork">Type of Dance Work</label><br>
+            <input type="checkbox" name="typeOfWork" id="workProfessional" value="Professional">
+            <label for="workProfessional" class="checkText">Professional</label><br>
+            <input type="checkbox" name="typeOfWork" id="workFreelance" value="Freelance">
+            <label for="workFreelance" class="checkText">Freelance</label><br>
+            <input type="checkbox" name="typeOfWork" id="workRecreational" value="Recreational">
+            <label for="workRecreational" class="checkText">Recreational</label><br>
+            <input type="checkbox" name="typeOfWork" id="workStudent" value="Student">
+            <label for="workStudent" class="checkText">Student</label><br><br>
+            <label for="currentCompany">Current Company or School Name: </label><br>
+            <input type="text" id="currentCompany"><br><br>
+            <label for="previousCompany">Previous Company or School Name: </label><br>
+            <input type="text" id="previousCompany"><br><br>
+            <label for="training">Main Type of Dance Training</label><br>
+            <input type="checkbox" name="training" id="ballet" value="Ballet">
+            <label for="ballet" class="checkText">Ballet</label><br>
+            <input type="checkbox" name="training" id="modern" value="Modern">
+            <label for="modern" class="checkText">Modern</label><br>
+            <input type="checkbox" name="training" id="lyrical" value="Lyrical">
+            <label for="lyrical" class="checkText">Lyrical</label><br>
+            <input type="checkbox" name="training" id="contemporary" value="Contemporary">
+            <label for="contemporary" class="checkText">Contemporary</label><br>
+            <input type="checkbox" name="training" id="theatrical" value="Theatrical-Broadway">
+            <label for="theatrical" class="checkText">Theatrical Broadway</label><br>
+            <input type="checkbox" name="training" id="tap" value="Tap">
+            <label for="tap" class="checkText">Tap</label><br>
+            <input type="checkbox" name="training" id="jazz" value="Jazz">
+            <label for="jazz" class="checkText">Jazz</label><br>
+            <input type="checkbox" name="training" id="folk" value="Folk">
+            <label for="folk" class="checkText">Folk</label><br>
+            <input type="checkbox" name="training" id="ethnic" value="Ethnic">
+            <label for="ethnic" class="checkText">Ethnic</label><br>
+            <input type="checkbox" name="training" id="flamenco" value="Flamenco">
+            <label for="flamenco" class="checkText">Flamenco</label><br>
+            <input type="checkbox" name="training" id="hipHop" value="Hip Hop">
+            <label for="hipHop" class="checkText">Hip Hop</label><br>
+            <input type="checkbox" name="training" id="ballroom" value="Ballroom">
+            <label for="ballroom" class="checkText">Ballroom</label><br><br>
+            <label for="beganTraining">Age began dance training?</label><br>
+            <input type="number" id="beganTraining"><br><br>
+            <label for="continuousTraining">Has your training been continuous?</label><br>
+            <input type="radio" name="continuousTraining" id="continuousYes" value="yes">
+            <label for="continuousYes" class="radioText">Yes</label><br>
+            <input type="radio" name="continuousTraining" id="continuousNo" value="no">
+            <label for="continuousNo" class="radioText">No</label><br><br>
+            <label for="pointeWork">Do you do pointe work?</label><br>
+            <input type="radio" name="pointeWork" id="pointeYes" value="yes">
+            <label for="pointeYes" class="radioText">Yes</label><br>
+            <input type="radio" name="pointeWork" id="pointeNo" value="no">
+            <label for="pointeNo" class="radioText">No</label><br><br>
+            <label for="numberOfYearsDancing">Total Number of Years Dancing?</label><br>
+            <input type="number" id="numberOfYearsDancing"><br><br>
+            <label for="numberOfYearsDancing">Number of Years as a Professional Dancing?</label><br>
+            <input type="number" id="numberOfYearsProDancing"><br><br>
+            <label for="performing">Are you currently performing?</label><br>
+            <input type="radio" name="performing" id="performingYes" value="yes">
+            <label for="performingYes" class="radioText">Yes</label><br>
+            <input type="radio" name="performing" id="performingNo" value="no">
+            <label for="performingNo" class="radioText">No</label><br><br>
+            <label for="rehearsalHours">Number of hours of rehearsal per day?</label><br>
+            <input type="number" id="rehearsalHours"><br><br>
+            <label for="dancePerDay">Number of dance classes per day?</label><br>
+            <input type="number" id="dancePerDay"><br><br>
+            <label for="performancePerMonth">Number of performances per month?</label><br>
+            <input type="number" id="performancesPerMonth"><br><br>
+            <label for="tourWeeks">Number of weeks per year on tour?</label><br>
+            <input type="number" id="tourWeeks"><br><br>
+            <label for="companyEmployedWeeks">If you are in a company, what is the number of weeks you are employed per contract year?</label><br>
+            <input type="number" id="companyEmployedWeeks"><br><br>
+            <label for="alterSchedule">Have you altered your dance schedule in the last 6 months</label><br>
+            <input type="radio" name="alterSchedule" id="noChange" value="No Change">
+            <label for="noChange" class="radioText">No Change</label><br>
+            <input type="radio" name="alterSchedule" id="gradualIncrease" value="Gradual Increase">
+            <label for="gradualIncrease" class="radioText">Gradual increase in hours dancing</label><br>
+            <input type="radio" name="alterSchedule" id="suddenIncrease" value="Sudden Increase">
+            <label for="suddenIncrease" class="radioText">Sudden increase in hours dancing</label><br>
+            <input type="radio" name="alterSchedule" id="gradualDecrease" value="Gradual Decrease">
+            <label for="gradualDecrease" class="radioText">Gradual decrease in hours dancing</label><br>
+            <input type="radio" name="alterSchedule" id="suddenDecrease" value="Sudden Decrease">
+            <label for="suddenDecrease" class="radioText">Sudden decrease in hours dancing</label><br><br>
+            <label for="offseasonTraining">Do you participate in a preseason or offseason conditioning, weight, and or jump program?</label><br>
+            <input type="radio" name="offseasonTraining" id="offSeasonYes" value="yes">
+            <label for="offSeasonYes" class="radioText">Yes</label><br>
+            <input type="radio" name="offseasonTraining" id="offSeasonNo" value="no">
+            <label for="offSeasonNo" class="radioText">No</label><br><br>
+            <label for="extraPrograms">What type of programs do you regularly participate in (in addition to dance)?</label><br>
+            <input type="checkbox" name="extraPrograms" id="extraNone" value="None">
+            <label for="extraNone" class="checkText">None</label><br>
+            <input type="checkbox" name="extraPrograms" id="gym" value="Health Club/Gym">
+            <label for="gym" class="checkText">Health Club/Gym</label><br>
+            <input type="checkbox" name="extraPrograms" id="running" value="Running/Jogging">
+            <label for="running" class="checkText">Running/Jogging</label><br>
+            <input type="checkbox" name="extraProgram" id="resistance" value="Resistance Training">
+            <label for="resistance" class="checkText">Resistance Training</label><br>
+            <input type="checkbox" name="extraProgram" id="yoga" value="yoga">
+            <label for="yoga" class="checkText">Yoga</label><br>
+            <input type="checkbox" name="extraProgram" id="swimming" value="Swimming">
+            <label for="swimming" class="checkText">Swimming</label><br>
+            <input type="checkbox" name="extraProgram" id="weightLifting" value="Weight Lifting">
+            <label for="weightLifting" class="checkText">Weight Lifting</label><br>
+            <input type="checkbox" name="extraProgram" id="cycling" value="Cycling/Elliptical">
+            <label for="cycling" class="checkText">Cycling/Elliptical</label><br>
+            <input type="checkbox" name="extraProgram" id="feldenkrais" value="Feldenkrais or Alexander">
+            <label for="feldenkrais" class="checkText">Feldenkrais or Alexander</label><br>
+            <input type="checkbox" name="extraProgram" id="walking" value="Walking">
+            <label for="walking" class="checkText">Walking</label><br>
+            <input type="checkbox" name="extraProgram" id="plyometric" value="Plyometric/Jump/HIIT">
+            <label for="plyometric" class="checkText">Plyometric/Jump/HIIT</label><br>
+            <input type="checkbox" name="extraProgram" id="pilates" value="Pilates or Gyrotonics">
+            <label for="pilates" class="checkText">Pilates or Gyrotonics</label><br>
+            <input type="checkbox" name="extraProgram" id="extraProgramOther" value="Other" onclick="extraProgramOthers()">
+            <label for="extraProgramOther" class="checkText">Other</label><br>
+            <input type="text" name="extraProgram" id="extraProgramOtherText" style="display:none;"><br><br>
+            
+            <label for="cardioTrainingPerWeek">Current number hrs/wk of cardiovascular training</label><br>
+            <input type="number" id="cardioTrainingPerWeek"><br><br>    
+            <label for="crossTrainingPerWeek">Current number hrs/wk other cross-training</label><br>
+            <input type="number" id="crossTrainingPerWeek"><br><br>
+            <label for="warmUp">Do you warm up before class?</label><br>
+            <input type="radio" name="warmUp" id="warmUpYes" value="yes">
+            <label for="warmUpYes" class="radioText">Yes</label><br>
+            <input type="radio" name="warmUp" id="warmUpNo" value="no">
+            <label for="warmUpNo" class="radioText">No</label><br><br>
+            <label for="musculoskeletalInjury">Have you sustained any musculoskeletal injuries in the last 12 months that caused you to miss: </label><br>
+            <input type="radio" name="musculoskeletalInjury" id="injuryPerformance" value="Performance">
+            <label for="injuryPerformance" class="radioText">Performance</label><br>
+            <input type="radio" name="musculoskeletalInjury" id="injuryRehearsal" value="Rehearsal">
+            <label for="injuryRehearsal" class="radioText">Rehearsal</label><br>
+            <input type="radio" name="musculoskeletalInjury" id="injuryClass" value="Dance Class">
+            <label for="injuryClass" class="radioText">Dance Class</label><br>
+            <input type="radio" name="musculoskeletalInjury" id="injuryWork" value="Work">
+            <label for="injuryWork" class="radioText">Work</label><br>
+            <input type="radio" name="musculoskeletalInjury" id="injurySports" value="sports">
+            <label for="injurySports" class="radioText">Sports</label><br>
+            <input type="radio" name="musculoskeletalInjury" id="injuryNone" value="No injury">
+            <label for="injuryNone" class="radioText">No Injury</label><br><br>
+            <label for="seenBy">Were you initially seen by:</label><br>
+            <select name="seenBy" id="seenBy">
+                <option value="General MD">General MD</option>
+                <option value="Orthopaedist">Orthopaedist</option>
+                <option value="Osteopath">Osteopath</option>
+                <option value="Physical Therapist">Physical Therapist</option>
+                <option value="Chiropractor">Chiropractor</option>
+                <option value="Massage Therapist">Massage Therapist</option>
+                <option value="Athletic Trainer">Athletic Trainer</option>
+                <option value="No One">No One</option>
+            </select><br><br>
+            <label for="injuryDiagnosis">What was the diagnosis or body region of your musculoskeletal injury sustained in the last 12 months?</label><br>
+            <input type="text" id="injuryDiagnosis"><br><br>
+            <label for="whereInjury">Where did the injury occur?</label><br>
+            <input type="radio" name="whereInjury" id="injuryWherePerformance" value="Performance">
+            <label for="injuryWherePerformance" class="radioText">Performance</label><br>
+            <input type="radio" name="whereInjury" id="injuryWhereRehearsal" value="Rehearsal">
+            <label for="injuryWhereRehearsal" class="radioText">Rehearsal</label><br>
+            <input type="radio" name="whereInjury" id="injuryWhereClass" value="Dance Class">
+            <label for="injuryWhereClass" class="radioText">Dance Class</label><br>
+            <input type="radio" name="whereInjury" id="injuryWhereWork" value="Work">
+            <label for="injuryWork" class="radioText">Work</label><br>
+            <input type="radio" name="whereInjury" id="injuryWhereSports" value="sports">
+            <label for="injuryWhereSports" class="radioText">Sports</label><br>
+            <input type="radio" name="whereInjury" id="injuryWhereNone" value="No injury">
+            <label for="injuryWhereNone" class="radioText">No Injury</label><br><br>
+            <label for="surgery">Did you have surgery for the injury mentioned above?</label><br>
+            <input type="radio" name="surgery" id="surgeryYes" value="yes">
+            <label for="surgeryYes" class="radioText">Yes</label><br>
+            <input type="radio" name="surgery" id="surgeryNo" value="no">
+            <label for="surgeryNo" class="radioText">No</label><br><br>
+            <label for="rehab">Did you receive any rehabilitation for injuries sustained?</label><br>
+            <input type="radio" name="rehab" id="rehabYes" value="yes">
+            <label for="rehabYes" class="radioText">Yes</label><br>
+            <input type="radio" name="rehab" id="rehabNo" value="no">
+            <label for="rehabNo" class="radioText">No</label><br><br>
+            <label for="resumption">Date of resumption of dance classes?</label><br>
+            <input type="date" id="resumption"><br><br>
+            <label for="return">Date of return to performance/rehearsal?</label><br>
+            <input type="date" id="return"><br><br>
+            <label for="continuedProblem">Are there any continuing problems due to your injury?</label><br>
+            <input type="radio" name="continuedProblem" id="problemNo" value="no" onclick="continuedProblems()">
+            <label for="problemNo" class="radioText">No</label><br>
+            <input type="radio" name="continuedProblem" id="problemYes" value="yes" onclick="continuedProblems()">
+            <label for="problemYes" class="radioText">Yes</label><br>
+            <input type="text" id="continuedProblemText" style="display: none"><br><br>
+           
+            <label for="otherInjuries">Have you had any other injuries or surgeries that you would like us to know about?</label><br>
+            <input type="radio" name="otherInjuries" id="otherInjuriesNo" value="no" onclick="otherInjury()">
+            <label for="otherInjuriesNo" class="radioText">No</label><br>
+            <input type="radio" name="otherInjuries" id="otherInjuriesYes" value="yes" onclick="otherInjury()">
+            <label for="otherInjuriesYes" class="radioText">Yes</label><br>
+            <input type="text" id="otherInjuriesText" style="display: none"><br><br>
+           
+            <label for="lossPastYear">In the past year, have you had a loss of friend(s), or family, or partner/spouse, or pet through
+                death, <br>separation, change in relationship or relocation?</label><br><br>
+            <input type="radio" name="lossPastYear" id="lossYes" value="yes">
+            <label for="lossYes" class="radioText">Yes</label><br>
+            <input type="radio" name="lossPastYear" id="lossNo" value="no">
+            <label for="lossNo" class="radioText">No</label><br><br>
+            <label for="counseling">Do you feel you would benefit from counseling for the above or mental/emotional  stress or anxiety?</label><br>
+            <input type="radio" name="counseling" id="counselingYes" value="yes">
+            <label for="counselingYes" class="radioText">Yes</label><br>
+            <input type="radio" name="counseling" id="counselingNo" value="No">
+            <label for="counselingNo" class="radioText">No</label><br><br>
+            <label for="fatigueYN">Do you feel you suffer from bouts of fatigue or tiredness more than your fellow dancers?</label><br>
+            <input type="radio" name="fatigue" id="fatigueYes" value="yes">
+            <label for="fatigueYes" class="radioText">Yes</label><br>
+            <input type="radio" name="fatigue" id="fatigueNo" value="no">
+            <label for="fatigueNo" class="radioText">No</label><br><br>
+            <label for="troubleSleeping">Do you have trouble falling asleep or getting back to sleep if you wake in the night?</label><br>
+            <input type="radio" name="troubleSleeping" id="sleepingYes" value="yes">
+            <label for="sleepingYes" class="radioText">Yes</label><br>
+            <input type="radio" name="troubleSleeping" id="sleepingNo" value="no">
+            <label for="sleepingNo" class="radioText">No</label><br><br>
+            <label for="sleepDeprived">Do you consider yourself sleep deprived?</label><br>
+            <input type="radio" name="sleepDeprived" id="deprivedYes" value="yes">
+            <label for="deprivedYes" class="radioText">Yes</label><br>
+            <input type="radio" name="sleepDeprived" id="deprivedNo" value="no">
+            <label for="deprivedNo" class="radioText">No</label><br><br>
+            <label for="nutritionCounseling"> Are you interested in nutritional counseling?</label><br>
+            <input type="radio" name="nutritionCounseling" id="nutritionYes" value="yes">
+            <label for="nutritionYes" class="radioText">Yes</label><br>
+            <input type="radio" name="nutritionCounseling" id="nutritionNo" value="no">
+            <label for="nutritionNo" class="radioText">No</label><br><br>
+            <label for="smoking">Do you smoke cigarettes?</label><br>
+            <input type="radio" name="smoking" id="smokingYes" value="yes">
+            <label for="smokingYes" class="radioText">Yes</label><br>
+            <input type="radio" name="smoking" id="smokingNo" value="no">
+            <label for="smokingNo" class="radioText">No</label><br><br>
+            <label for="smokingCessation">Are you interested in smoking cessation information?</label><br>
+            <input type="radio" name="smokingCessation" id="cessationYes" value="yes">
+            <label for="cessationYes" class="radioText">Yes</label><br>
+            <input type="radio" name="smokingCessation" id="cessationNo" value="no">
+            <label for="cessationNo" class="radioText">No</label><br><br>
+            <label for="drinksPerDay">On average how many alcoholic drinks do you drink in a day?</label><br>
+            <input type="number" id="drinksPerDay"><br><br>
+            <label for="drugUse">How many times in a week do you use drugs or medications for non-medical reasons? (example marijuana)</label><br>
+            <input type="number" id="drugUse"><br><br>
+            <label for="worry">Do you worry about any aspect of your health?</label><br>
+            <input type="radio" name="worry" id="worryNo" value="no" onclick="worryTexts()">
+            <label for="worryNo" class="radioText">No</label><br>
+            <input type="radio" name="worry" id="worryYes" value="yes" onclick="worryTexts()">
+            <label for="worryYes" class="radioText">Yes</label><br>
+            <input type="text" name="worry" id="worryText" style="display:none"><br><br>
+           
+            <button type="button" id="next" onclick="validateHealthDemo()">Next</button>
+            
+        </form>
+        
+        <form id="BFA" style="display: none">
+            <h2>Screening Form</h2><br>
+            <p><b>Station 1: Intake</b></p>
+            <label for="restingBP">Resting BP (mmHg): </label><label for="restingHR" class="rightInput">Resting HR (bpm): </label><br>
+            <input type="text" id="restingBP"><input type="number" id="restingHR" class="rightInput"><br><br>
+            
+            <label for="maxHR">Max HR (bpm): </label><label for="recovery1Min" class="rightInput">Recovery 1 Min (bpm): </label><br>
+            <input type="number" id="maxHR"> <input type="number" id="recovery1Min" class="rightInput"><br><br>
+          
+            <label for="bmi">BMI</label><label for="eat26" class="rightInput">Eat 26</label><br>
+            <input type="number" id="bmi"><input type="number" id="eat26" class="rightInput"><br><br>
+            
+            <p><b>Station 2: Structural Screen / Flexibility in Stance</b></p>
+            <p id="postureCode">Code: 0 = normal, 1 = moderate, 2 = severe</p>
+            <label for="forwardHead">Forward Head Sagittal:</label><label for="forwardHead" class="rightInput">Forward Head Frontal:</label><br>
+            <input type="radio" name="forwardHead" id="forwardHeadS0"><input type="radio" name="forwardHead1" id="forwardHeadF0" class="rightInput">
+            <label for="forwardHeadS0" class="radioText">0</label><label for="forwardHeadF0"  class="rightRadioText" >0</label>
+            <input type="radio" name="forwardHead" id="forwardHeadS1" class="radio1"><input type="radio" name="forwardHead1" class="rightRadio1" id="forwardHeadF1">
+            <label for="forwardHeadS1" class="radioText1">1</label><label for="forwardHeadF1" class="rightRadioText1">1</label>
+            <input type="radio" name="forwardHead" id="forwardHeadS2" class="radio2"><input type="radio" name="forwardHead1" class="rightRadio2" id="forwardHeadF2">
+            <label for="forwardHeadS2" class="radioText2">2</label><label for="forwardHeadF2" class="rightRadioText2">2</label><br><br>
+            
+             <label for="headTilt">Head Tilts to?</label><br>
+            <input type="radio" name="headTilt" id="headTiltL" value="L">
+            <label for="headTiltL" class="radioText">L</label>
+            <input type="radio" id="headTiltR"  name="headTilt" class="radio1" value="R">
+            <label for="headTiltR" class="radioText1">R</label><br><br>
+            
+            <label for="shouldersLevel">Shoulders Level</label><label for="shoulderSuperior" class="rightInput">Shoulders Superior?</label><br>
+            <input type="radio" name="shouldersLevel" id="shouldersLevel0"><input type="radio" name="shouldersSuperior" id="shoulderSuperiorL" class="rightInput" value="L">
+            <label for="shouldersLevel0" class="radioText">0</label><label for="shoulderSuperiorL" class="rightRadioText">L</label>
+            <input type="radio" name="shouldersLevel" class="radio1" id="shouldersLevel1">
+            <label for="shouldersLevel1" class="radioText1">1</label><input type="radio" name="shouldersSuperior" id="shoulderSuperiorR" class="rightRadio1" value="R">
+            <input type="radio" name="shouldersLevel" class="radio2" id="shouldersLevel2"><label for="shoulderSuperiorR" class="rightRadioText1">R</label>
+            <label for="shouldersLevel2" class="radioText2">2</label><br><br>
+            
+            <label for="thoracicKyphosis">Thoracic Kyphosis</label><br>
+            <input type="radio" name="thoracicKyphosis" id="thoracicKyphosis0">
+            <label for="thoracicKyphosis0" class="radioText">0</label>
+            <input type="radio" name="thoracicKyphosis" class="radio1" id="thoracicKyphosis1">
+            <label for="thoracicKyphosis1" class="radioText1">1</label>
+            <input type="radio" name="thoracicKyphosis" class="radio2" id="thoracicKyphosis2">
+            <label for="thoracicKyphosis2" class="radioText2">2</label><br><br>
+            <label for="lumbarLordosis">Lumbar Lordosis</label><br>
+            <input type="radio" name="lumbarLordosis" id="lumbarLordosis0">
+            <label for="lumbarLordosis0" class="radioText">0</label>
+            <input type="radio" name="lumbarLordosis" class="radio1" id="lumbarLordosis1">
+            <label for="lumbarLordosis1" class="radioText1">1</label>
+            <input type="radio" name="lumbarLordosis" class="radio2" id="lumbarLordosis2">
+            <label for="lumbarLordosis2" class="radioText2">2</label><br><br>
+            
+            <label for="iliacCrestsLevel">Iliac Crests Level</label><label for="lld" class="rightInput">LLD?</label><br>
+            <input type="radio" name="iliacCrestsLevel" id="iliacCrestsLevel0"><input type="radio" name="lld" id="lldL" class="rightInput" value="L">
+            <label for="iliacCrestsLevel0" class="radioText">0</label><label for="lldL" class="rightRadioText">L>R</label>
+            <input type="radio" name="iliacCrestsLevel" class="radio1" id="iliacCrestsLevel1"> <input type="radio" name="lld" id="lldR" class="rightRadio2" value="R">
+            <label for="iliacCrestsLevel1" class="radioText1">1</label><label for="lldR" class="rightRadioText2">R>L</label>
+            <input type="radio" name="iliacCrestsLevel" class="radio2" id="iliacCrestsLevel2">
+            <label for="iliacCrestsLevel2" class="radioText2">2</label><br><br>
+            
+            
+            <label for="knees">Knees</label><br>
+            <input type="radio" id="kneesGenuVarus" value="genu varus" class="radio" name="kneesBFA">
+            <label for="kneesGenuVarus" class="radioText">Genu Varus</label><br>
+            <input type="radio" id="kneesGenuValgus" value="genu valgus" name="kneesBFA" class="radio">
+            <label for="kneesGenuValgus" class="radioText">Genu Valgus</label><br><br>
+            <label for="genuRecurvatum">Genu Recurvatum</label><br>
+            <input type="radio" id="genuRecurvatumY" name="genuRecurvartum" class="radio" value="Y">
+            <label for="genuRecurbatumY" class="radioText">Y</label>
+            <input type="radio" id="genuRecurvatumN" name="genuRecurvartum" class="radio1" value="N">
+            <label for="genuRecurbatumN" class="radioText1">N</label><br><br>
+           
+            <label for="tibialTorsion">Tibial Torsion</label><br>
+            <input type="radio" id="tibialTorsionY" name="tibialTorsion" class="radio" value="Y">
+            <label for="tibialTorsionY" class="radioText">Y</label>
+            <input type="radio" id="tibialTorsionN" name="tibialTorsion" class="radio1" value="N">
+            <label for="tibialTorsionN" class="radioText1">N</label><br><br>
+            
+            <label for="footAlignment">Foot Alignment</label><br>
+            <input type="radio" id="footAlignmentCavus" name="footAlignment" class="radio" value="Cavus">
+            <label for="footAlignmentCavus" class="radioText">Cavus</label>
+            <input type="radio" id="footAlignmentNormal" name="footAlignment"  value="Normal" class="footRadio1">
+            <label for="footAlignmentNormal" class="footRadioText1">Normal</label>
+            <input type="radio" id="footAlignmentPronation" name="footAlignment" class="footRadio2" value="Pronation">
+            <label for="footAlignmentPronation" class="footRadioText2">Pronation</label><br><br>
+           
+            <label for="halluxValgus">Hallux Valgus</label><br>
+            <input type="radio" id="halluxValgusY" name="halluxValgus" class="radio" value="Yes">
+            <label for="halluxValgusY" class="radioText">Y</label>
+            <input type="radio" id="halluxValgusN" name="halluxValgus" class="radio1" value="No">
+            <label for="halluxValgusN" class="radioText1">N</label><br><br>
+            
+            <label for="scoliosis">Scoliosis: Adam's forward bending (Sagittal)</label><label for="scoliosisFrontal" class="rightInput">Scoliosis: Adam's forward bending (Frontal)</label><br>
+            <input type="radio" name="scoliosis" id="scoliosis0"><input type="radio" id="scoliosisFrontalY" name="scoliosisFrontal" class="rightInput" value="Y">
+            <label for="iliacCrestsLevel0" class="radioText">0</label><label for="scoliosisFrontalY" class="rightRadioText">Y</label>
+            <input type="radio" name="scoliosis" class="radio1" id="scoliosis1"><input type="radio" id="scoliosisFrontalN" name="scoliosisFrontal" class="rightRadio1" value="N">
+            <label for="iliacCrestsLevel1" class="radioText1">1</label><label for="scoliosisFrontalN" class="rightRadioText1">N</label>
+            <input type="radio" name="scoliosis" class="radio2" id="scoliosis2">
+            <label for="scoliosis2" class="radioText2">2</label><br><br>
+
+            <label for="ribBump">Scoliosis Rib Bump</label><br>
+            <input type="radio" id="ribBumpL" name="ribBump" class="radio" value="Left">
+            <label for="ribBumpL" class="radioText">L</label>
+            <input type="radio" id="ribBumpR" name="ribBump" class="radio1" value="Right">
+            <label for="ribBumpR" class="radioText1">R</label>
+            <input type="radio" id="ribBumpNA" name="ribBump" class="radio2" value="N/A">
+            <label for="ribBumpNA" class="radioText2">N/A</label><br><br>
+           
+            
+            <label for="primitiveSquat" >Knees: Primative Squat</label><br><br>
+            <label for="kneeAlignment">Knees Good alignment?</label><label for="squatRange" class="rightInput">Squat Range?</label><br>
+            <input type="radio" id="kneeAlignmentY" name="kneeAlignment" class="radio" value="Y" onchange="badAlignmentToggle()"><input type="radio" id="squatRangeFull" name="squatRange" class="rightInput" value="Full">
+            <label for="kneeAlignmentY" class="radioText">Y</label><label for="squatRangeFull" class="rightRadioText">Full</label>
+            <input type="radio" id="kneeAlignmentN" name="kneeAlignment" class="radio1" value="N" onchange="badAlignmentToggle()"><input type="radio" id="squatRangeOther" name="squatRange" class="rightRangeRadio1" value="Other">
+            <label for="kneeAlignmentN" class="radioText1">N</label>  <label for="squatRangeOther" class="rightRadioRangeText1">Other</label><br><br>
+            
+          
+            <input type="radio" id="badAlignmentNA" name="badAlignment" class="radio" value="n/a" onchange="kneeAlignmentScore()" style="display: none">
+            <label for="badAlignmentNA" id="badAlignmentNALabel" class="radioText" style="display: none">N/A</label>
+            <input type="radio" id="badAlignmentValgus" name="badAlignment" class="squatRadio1" value="Valgus" onchange="kneeAlignmentScore()" style="display: none">
+            <label for="badAlignmentValgus" id="badAlignmentValgusLabel" class="squatRadioText1" style="display: none">Valgus</label>
+            <input type="radio" id="badAlignmentVarus" name="badAlignment" class="squatRadio2" value="Varus Stress" onchange="kneeAlignmentScore()" style="display: none">
+            <label for="badAlignmentVarus" id="badAlignmentVarusLabel" class="squatRadioText2" style="display: none">Varuss Stress</label><br><br>
+            
+           
+           
+            <label for="generalFlexibility">General flexibility Forward Bending</label><br>
+            <input type="radio" id="fingersToLeg" name="generalFlexibility" class="radio" value="Fingers to Leg">
+            <label for="fingersToLeg" class="radioText">Fingers to Leg</label><br>
+            <input type="radio" id="fingersToToes" name="generalFlexibility" class="radio" value="Fingers to Toes">
+            <label for="fingersToToes" class="radioText">Fingers to Toes</label><br>
+            <input type="radio" id="fingersToFloor" name="generalFlexibility" class="radio" value="Fingers to Floor">
+            <label for="fingersToFloor" class="radioText">Fingers to Floor</label><br>
+            <input type="radio" id="palmsToFloor" name="generalFlexibility" class="radio" value="Palms to Floor">
+            <label for="palmToFloor" class="radioText">Palm to Floor</label><br>
+            <input type="radio" id="palmsBehindFeet" name="generalFlexibility" class="radio" value="Palms Behind Feet">
+            <label for="palmBehindFeet" class="radioText">Palm Behind Feet</label><br><br>
+            
+           
+            <label for="firstPositionTurnout" >Preferred 1st Position Turnout</label><br><br>
+            <label for="leftTurnout">Left: </label><label for="rightTurnout" class="rightInput">Right: </label><br>
+            <input type="number" id="leftTurnout"><input type="number" id="rightTurnout" class="rightInput"><br><br>
+           
+            
+            <label for="firstPositionDiscs" >Preferred 1st Position Discs</label><br><br>
+            <label for="leftDiscs">Left: </label><label for="rightDiscs" class="rightInput">Right: </label><br>
+            <input type="number" id="leftDiscs" ><input type="number" id="rightDiscs" class="rightInput"><br><br>
+         
+            <p><b>Station 3: Balance</b></p>
+            <label for="oneLeggedPasse" >1-Legged Parallel Passe</label><br>
+            <label for="leftPasse">Left: </label><label for="righttPasse" class="rightInput">Right: </label><br>
+            <input type="number" id="leftPasse"><input type="number" id="rightPasse" class="rightInput"><br>
+            <input type="radio" class="radio" name="leftTBH" value="T" id="leftT">
+            <label for="leftT" class="radioText">T</label>
+            <input type="radio" class="radio1" name="leftTBH" value="B" id="leftB">
+            <label for="leftB" class="radioText1">B</label>
+            <input type="radio" class="radio2" name="leftTBH" value="H" id="leftH">
+            <label for="leftH" class="radioText2">H</label>
+            <input type="radio" class="rightInput" name="rightTBH" value="T" id="rightT">
+            <label for="rightT" class="rightRadioText">T</label>
+            <input type="radio" class="rightRadio1" name="rightTBH" value="B" id="rightB">
+            <label for="rightB" class="rightRadioText1">B</label>
+            <input type="radio" class="rightRadio2" name="rightTBH" value="H" id="rightH">
+            <label for="rightH" class="rightRadioText2">H</label><br><br>
+          
+            
+            <p><b>Station 4: Flexibility / Laxity</b></p>
+            <label for="psoasLeft">Left Psoas: </label><label for="psoasRight" class="rightInput">Right Psoas: </label><br>
+            <input type="radio" class="radio" id="psoasLeftWNL" value="WNL" name="psoasLeft" onclick="psoasLeftTightFunc()">
+            <label for="psoasLeftWNL" class="radioText">WNL</label>
+            <input type="radio" class="flexibilityRadio1" id="psoasLeftTight" value="Tight" name="psoasLeft" onclick="psoasLeftTightFunc()">
+            <label for="psoasLeftTight" class="flexibilityRadioText1">Tight</label>
+            <input type="radio" class="rightInput" id="psoasRightWNL" value="WNL" name="psoasRight" onclick="psoasRightTightFunc()">
+            <label for="psoasRightWNL" class="rightRadioText">WNL</label>
+            <input type="radio" class="flexibilityRightRadio1" id="psoasRightTight" value="Tight" name="psoasRight" onclick="psoasRightTightFunc()">
+            <label for="psoasRightTight" class="flexibilityRightRadioText1">Tight</label><br>
+            <input type="number" id="psoasLeftAngle" style="display: none"><input type="number" id="psoasRightAngle" style="display: none" class="rightInput"><br><br>
+        
+            
+            <label for="rfLeft">Left Rectus Femoris: </label><label for="rfRight" class="rightInput">Right Rectus Femoris: </label><br>
+            <input type="radio" class="radio" id="rfLeftWNL" value="WNL" name="rfLeft" onclick="rfLeftTightFunc()">
+            <label for="rfLeftWNL" class="radioText">WNL</label>
+            <input type="radio" class="flexibilityRadio1" id="rfLeftTight" value="Tight" name="rfLeft" onclick="rfLeftTightFunc()">
+            <label for="rfLeftTight" class="flexibilityRadioText1">Tight</label>
+            <input type="radio" class="rightInput" id="rfRightWNL" value="WNL" name="rfRight" onclick="rfRightTightFunc()">
+            <label for="rfRightWNL" class="rightRadioText">WNL</label>
+            <input type="radio" class="flexibilityRightRadio1" id="rfRightTight" value="Tight" name="rfRight" onclick="rfRightTightFunc()">
+            <label for="rfRightTight" class="flexibilityRightRadioText1">Tight</label><br>
+            <input type="number" id="rfLeftAngle" style="display: none"><input type="number" id="rfRightAngle" style="display: none" class="rightInput"><br><br>
+           
+            <label for="itbLeft">Left Iliotibial Band(ITB): </label><label for="itbRight" class="rightInput">Right Iliotibial Band(ITB): </label><br>
+            <input type="radio" class="radio" id="itbLeftWNL" value="WNL" name="itbLeft" onclick="itbLeftTightFunc()">
+            <label for="itbLeftWNL" class="radioText">WNL</label>
+            <input type="radio" class="flexibilityRadio1" id="itbLeftTight" value="Tight" name="itbLeft" onclick="itbLeftTightFunc()">
+            <label for="itbLeftTight" class="flexibilityRadioText1">Tight</label>
+            <input type="radio" class="rightInput" id="itbRightWNL" value="WNL" name="itbRight" onclick="itbRightTightFunc()">
+            <label for="itbRightWNL" class="rightRadioText">WNL</label>
+            <input type="radio" class="flexibilityRightRadio1" id="itbRightTight" value="Tight" name="itbRight" onclick="itbRightTightFunc()">
+            <label for="itbRightTight" class="flexibilityRightRadioText1">Tight</label><br>
+            
+            <input type="number" id="itbLeftAngle" style="display: none"><input type="number" id="itbRightAngle" style="display: none" class="rightInput"><br><br>
+           
+            <label for="hipGrindLeft">Hip Grind Left: </label><label for="hipGrindRight" class="rightInput">Hip Grind Right: </label><br>
+            <input type="radio" id="hipGrindLeftPos" name="hipGrindLeft" value="Positive" class="radio">
+            <label for="hipGrindLeftPos" class="radioText">Positive</label>
+            <input type="radio" id="hipGrindLeftNeg" name="hipGrindLeft" value="Negative" class="radio2">
+            <label for="hipGrindLeftNeg" class="radioText2">Negative</label>
+            <input type="radio" id="hipGrindRightPos" name="hipGrindRight" value="Positive" class="rightInput">
+            <label for="hipGrindRightPos" class="rightRadioText">Positive</label>
+            <input type="radio" id="hipGrindRightNeg" name="hipGrindRight" value="Negative" class="rightRadio2">
+            <label for="hipGrindRightNeg" class="rightRadioText2">Negative</label><br><br>
+            
+            <label for="SLRLeft" >SLR HS Left (deg): </label><label for="SLRRight" class="rightInput">SLR HS Right (deg): </label><br>
+            <input type="number" id="SLRLeft"><input type="number" id="SLRRight" class="rightInput"><br><br>
+            
+            <label for="proneIRLeft">Prone IR Left (deg): </label><label for="proneIRRight" class="rightInput">Prone IR Right (deg): </label><br>
+            <input type="number" id="proneIRLeft"><input type="number" id="proneIRRight" class="rightInput"><br><br>
+            
+            
+            
+            <label for="proneERLeft">Prone ER Left (deg): </label><label for="proneERRight" class="rightInput">Prone ER Right (deg): </label><br>
+            <input type="number" id="proneERLeft"><input type="number" id="proneERRight" class="rightInput"><br><br>
+           
+            <label for="kneeExt">Knee Ext (supine)</label><br>
+            <label for="leftKneeExt">Left: </label><label for="rightKneeExt" class="rightInput">Right: </label><br>
+            <input type="number" id="leftKneeExt"><input type="number" id="rightKneeExt" class="rightInput"><br><br>
+           
+            <label for="pfLeft">PF Left</label><label for="pfRight" class="rightInput">PF Right</label><br>
+            <input type="radio" class="radio" id="pfLeftWNL" value="WNL" name="pfLeft">
+            <label for="pfLeftWNL" class="radioText">WNL</label>
+            <input type="radio" class="flexibilityRadio1" id="pfLeftLim" value="Lim" name="pfLeft">
+            <label for="pfLeftLim" class="flexibilityRadioText1">Lim</label>
+            <input type="radio" class="rightInput" id="pfRightWNL" value="WNL" name="pfRight">
+            <label for="pfRightWNL" class="rightRadioText">WNL</label>
+            <input type="radio" class="flexibilityRightRadio1" id="pfRightLim" value="Lim" name="pfRight">
+            <label for="pfRightLim" class="flexibilityRightRadioText1">Lim</label><br><br>
+            
+            <label for="firstMtpDFLeft">1st Mtp DF Left</label> <label for="firstMtpDFRight" class="rightInput">1st Mtp DF Right</label><br>
+            <input type="radio" class="radio" id="firstMtpDFLeft90" value="<90" name="firstMtpDFLeft">
+            <label for="firstMtpDFLeft90" class="radioText"><90</label>
+            <input type="radio" class="flexibilityRadio1" id="firstMtpDFLeftPlus" value="90+" name="firstMtpDFLeft">
+            <label for="firstMtpDFLeftPlus" class="flexibilityRadioText1">90+</label>
+            <input type="radio" class="rightInput" id="firstMtpDFRight90" value="<90" name="firstMtpDFRight">
+            <label for="firstMtpDFRight90" class="rightRadioText"><90</label>
+            <input type="radio" class="flexibilityRightRadio1" id="firstMtpDFRightPlus" value="90+" name="firstMtpDFRight">
+            <label for="firstMtpDFRightPlus" class="flexibilityRightRadioText1">90+</label><br><br>
+           
+            
+            <label for="upperExtremity"><b>Upper Extremity (Beighton Score)</b></label><br>
+            <label for="passiveDF">Passive DF of 5th finger MCP beyond 90 degrees</label><br>
+            <label for="leftPassiveDF">Left: </label><label for="rightPassiveDF" class="rightInput">Right: </label><br>
+            <input type="radio" class="radio" id="leftPassiveDFY" value="Yes" name="leftPassiveDF">
+            <label for="leftPassiveDFY" class="radioText">Yes</label>
+            <input type="radio" class="flexibilityRadio1" id="leftPassiveDFN" value="No" name="leftPassiveDF">
+            <label for="leftPassiveDFN" class="flexibilityRadioText1">No</label>
+            <input type="radio" class="rightInput" id="rightPassiveDFY" value="Yes" name="rightPassiveDF">
+            <label for="rightPassiveDFY" class="rightRadioText">Yes</label>
+            <input type="radio" class="flexibilityRightRadio1" id="rightPassiveDFN" value="No" name="rightPassiveDF">
+            <label for="rightPassiveDFN" class="flexibilityRightRadioText1">No</label><br><br>
+            
+            
+           
+            
+            
+            <label for="passiveApposition">Passive apposition of thumb to flexor aspect of forearm</label><br>
+            <label for="leftPassiveApp">Left: </label><label for="rightPassiveApp" class="rightInput">Right: </label><br>
+            <input type="radio" class="radio" id="leftPassiveAppY" value="Yes" name="leftPassiveApp">
+            <label for="leftPassiveAppY" class="radioText">Yes</label>
+            <input type="radio" class="flexibilityRadio1" id="leftPassiveAppN" value="No" name="leftPassiveApp">
+            <label for="leftPassiveAppN" class="flexibilityRadioText1">No</label>
+            <input type="radio" class="rightInput" id="rightPassiveAppY" value="Yes" name="rightPassiveApp">
+            <label for="rightPassiveAppY" class="rightRadioText">Yes</label>
+            <input type="radio" class="flexibilityRightRadio1" id="rightPassiveAppN" value="No" name="rightPassiveApp">
+            <label for="rightPassiveAppN" class="flexibilityRightRadioText1">No</label><br><br>
+            
+            <label for="hyperextension">Hyperextension of elbow beyond 10 degrees</label><br>
+            <label for="leftHyperextension">Left: </label><label for="rightHyperextension" class="rightInput">Right: </label><br>
+            <input type="radio" class="radio" id="leftHyperextensionY" value="Yes" name="leftHyperextension">
+            <label for="leftHyperextensionY" class="radioText">Yes</label>
+            <input type="radio" class="flexibilityRadio1" id="leftHyperextensionN" value="No" name="leftHyperextension">
+            <label for="leftHyperextensionN" class="flexibilityRadioText1">No</label>
+            <input type="radio" class="rightInput" id="rightHyperextensionY" value="Yes" name="rightHyperextension">
+            <label for="rightHyperextensionY" class="rightRadioText">Yes</label>
+            <input type="radio" class="flexibilityRightRadio1" id="rightHyperextensionN" value="No" name="rightHyperextension">
+            <label for="rightHyperextensionN" class="flexibilityRightRadioText1">No</label><br><br>
+            
+            <label for="kneeLiftLeft">Knee Lift Left</label><label for="kneeLiftRight" class="rightInput">Knee Lift Right</label><br>
+            <input type="radio" class="radio" id="kneeLiftLeftPos" name="kneeLiftLeft" value="Positive">
+            <label for="kneeLiftLeftPos" class="radioText">Positive</label>
+            <input type="radio" class="radio2" id="kneeLiftLeftNeg" name="kneeLiftLeft" value="Negative">
+            <label for="kneeLiftLeftNeg" class="radioText2">Negative</label>            
+            <input type="radio" class="rightInput" id="kneeLiftRightPos" name="kneeLiftRight" value="Positive">
+            <label for="kneeLiftRightPos" class="rightRadioText">Positive</label>
+            <input type="radio" class="rightRadio2" id="kneeLiftRightNeg" name="kneeLiftRight" value="Negative">
+            <label for="kneeLiftRightNeg" class="rightRadioText2">Negative</label><br><br>
+            
+           
+            <p><b>Station 5: Abdominals, Hip, Knee & Ankle Isometric Strength</b></p>
+            <label for="ALL">Abdominal Leg Lowering (deg)</label><br>
+            <input type="number" id="ALL"><br><br>
+            
+            <label for="leftHipFlexion">Left Hip Flexion</label><label for="rightHipFlexion" class="rightInput">Right Hip Flexion</label><br>
+            <input type="radio" name="leftHipFlexion" id="leftHipFlex4m" value="<=4-" class="radio"><input type="radio" name="rightHipFlexion" id="rightHipFlex4m" value="<=4-" class="rightInput">
+            <label for="leftHipFlex4m" class="radioText">&leq;4-</label><label for="rightHipFlex4m" class="rightRadioText">&leq;4-</label>
+            <input type="radio" name="leftHipFlexion" id="leftHipFlex4" value="4" class="radio1"><input type="radio" name="rightHipFlexion" id="rightHipFlex4" value="4" class="rightRadio1">
+            <label for="leftHipFlex4" class="radioText1">4</label><label for="rightHipFlex4" class="rightRadioText1">4</label>
+            <input type="radio" name="leftHipFlexion" id="leftHipFlex4p" value=">=4+" class="radio2"> <input type="radio" name="rightHipFlexion" id="rightHipFlex4p" value=">=4+" class="rightRadio2">
+            <label for="leftHipFlex4p" class="radioText2">&geq;4+</label><label for="rightHipFlex4p" class="rightRadioText2">&geq;4+</label><br><br>
+            <label for="leftHipExtRotate">Left Hip External Rotation</label><label for="rightHipExtRotate" class="rightInput">Right Hip External Rotation</label><br>
+            <input type="radio" name="leftHipExtRotate" id="leftHipExtRotate4m" value="<=4-" class="radio"><input type="radio" name="rightHipExtRotate" id="rightHipExtRotate4m" value="<=4-" class="rightInput">
+            <label for="leftHipExtRotate4m" class="radioText">&leq;4-</label><label for="rightHipExtRotate4m" class="rightRadioText">&leq;4-</label>
+            <input type="radio" name="leftHipExtRotate" id="leftHipExtRotate4" value="4" class="radio1"><input type="radio" name="rightHipExtRotate" id="rightHipExtRotate4" value="4" class="rightRadio1">
+            <label for="leftHipExtRotate4" class="radioText1">4</label><label for="rightHipExtRotate4" class="rightRadioText1">4</label>
+            <input type="radio" name="leftHipExtRotate" id="leftHipExtRotate4p" value=">=4+" class="radio2"><input type="radio" name="rightHipExtRotate" id="rightHipExtRotate4p" value=">=4+" class="rightRadio2">
+            <label for="leftHipExtRotate4p" class="radioText2">&geq;4+</label><label for="rightHipExtRotate4p" class="rightRadioText2">&geq;4+</label><br><br>
+            <label for="leftHipIntRotate">Left Hip Internal Rotation</label><label for="rightHipIntRotate" class="rightInput">Right Hip Internal Rotation</label><br>
+            <input type="radio" name="leftHipIntRotate" id="leftHipIntRotate4m" value="<=4-" class="radio"><input type="radio" name="rightHipIntRotate" id="rightHipIntRotate4m" value="<=4-" class="rightInput">
+            <label for="leftHipIntRotate4m" class="radioText">&leq;4-</label><label for="rightHipIntRotate4m" class="rightRadioText">&leq;4-</label>
+            <input type="radio" name="leftHipIntRotate" id="leftHipIntRotate4" value="4" class="radio1"><input type="radio" name="rightHipIntRotate" id="rightHipIntRotate4" value="4" class="rightRadio1">
+            <label for="leftHipIntRotate4" class="radioText1">4</label><label for="rightHipIntRotate4" class="rightRadioText1">4</label>
+            <input type="radio" name="leftHipIntRotate" id="leftHipIntRotate4p" value=">=4+" class="radio2"><input type="radio" name="rightHipIntRotate" id="rightHipIntRotate4p" value=">=4+" class="rightRadio2">
+            <label for="leftHipIntRotate4p" class="radioText2">&geq;4+</label><label for="rightHipIntRotate4p" class="rightRadioText2">&geq;4+</label><br><br>
+            <label for="leftHipAbd">Left Hip Abduction</label><label for="rightHipAbd" class="rightInput">Right Hip Abduction</label><br>
+            <input type="radio" name="leftHipAbd" id="leftHipAbd4m" value="<=4-" class="radio"><input type="radio" name="rightHipAbd" id="rightHipAbd4m" value="<=4-" class="rightInput">
+            <label for="leftHipAbd4m" class="radioText">&leq;4-</label><label for="rightHipAbd4m" class="rightRadioText">&leq;4-</label>
+            <input type="radio" name="leftHipAbd" id="leftHipAbd4" value="4" class="radio1"><input type="radio" name="rightHipAbd" id="rightHipAbd4" value="4" class="rightRadio1">
+            <label for="leftHipAbd4" class="radioText1">4</label><label for="rightHipAbd4" class="rightRadioText1">4</label>
+            <input type="radio" name="leftHipAbd" id="leftHipAbd4p" value=">=4+" class="radio2"><input type="radio" name="rightHipAbd" id="rightHipAbd4p" value=">=4+" class="rightRadio2">
+            <label for="leftHipAbd4p" class="radioText2">&geq;4+</label><label for="rightHipAbd4p" class="rightRadioText2">&geq;4+</label><br><br>
+            <label for="leftHipAdd">Left Hip Adduction</label><label for="rightHipAdd" class="rightInput">Right Hip Adduction</label><br>
+            <input type="radio" name="leftHipAdd" id="leftHipAdd4m" value="<=4-" class="radio"><input type="radio" name="rightHipAdd" id="rightHipAdd4m" value="<=4-" class="rightInput">
+            <label for="leftHipAdd4m" class="radioText">&leq;4-</label> <label for="rightHipAdd4m" class="rightRadioText">&leq;4-</label>
+            <input type="radio" name="leftHipAdd" id="leftHipAdd4" value="4" class="radio1"><input type="radio" name="rightHipAdd" id="rightHipAdd4" value="4" class="rightRadio1">
+            <label for="leftHipAdd4" class="radioText1">4</label><label for="rightHipAdd4" class="rightRadioText1">4</label>
+            <input type="radio" name="leftHipAdd" id="leftHipAdd4p" value=">=4+" class="radio2"><input type="radio" name="rightHipAdd" id="rightHipAdd4p" value=">=4+" class="rightRadio2">
+            <label for="leftHipAdd4p" class="radioText2">&geq;4+</label><label for="rightHipAdd4p" class="rightRadioText2">&geq;4+</label><br><br>
+            <label for="leftKneeFlex">Left Knee Flexion</label><label for="rightKneeFlex" class="rightInput">Right Knee Flexion</label><br>
+            <input type="radio" name="leftKneeFlexion" id="leftKneeFlex4m" value="<=4-" class="radio"><input type="radio" name="rightKneeFlexion" id="rightKneeFlex4m" value="<=4-" class="rightInput">
+            <label for="leftKneeFlex4m" class="radioText">&leq;4-</label><label for="rightKneeFlex4m" class="rightRadioText">&leq;4-</label>
+            <input type="radio" name="leftKneeFlexion" id="leftKneeFlex4" value="4" class="radio1"><input type="radio" name="rightKneeFlexion" id="rightKneeFlex4" value="4" class="rightRadio1"> 
+            <label for="leftKneeFlex4" class="radioText1">4</label><label for="rightKneeFlex4" class="rightRadioText1">4</label>
+            <input type="radio" name="leftKneeFlexion" id="leftKneeFlex4p" value=">=4+" class="radio2"><input type="radio" name="rightKneeFlexion" id="rightKneeFlex4p" value=">=4+" class="rightRadio2">
+            <label for="leftKneeFlex4p" class="radioText2">&geq;4+</label><label for="rightKneeFlex4p" class="rightRadioText2">&geq;4+</label><br><br>
+            
+            <label for="leftAnklePlantar">Left Ankle Plantar Flexion Reps</label><label for="rightAnklePlantar" class="rightInput">Right Ankle Plantar Flexion Reps</label><br>
+            <input type="number" id="leftAnklePlantar"><input type="number" id="rightAnklePlantar" class="rightInput"><br><br> 
+           
+            <p>Hand Held Dynamometry</p>
+            <label for="ASISToMedMalleolus">ASIS to med malleolus (in)</label><label for="ASISToKneeJoint" class="rightInput">ASIS to knee joint (in)</label><br>
+            <input type="number" id="ASISToMedMalleolus"><input type="number" id="ASISToKneeJoint" class="rightInput"><br><br> <label for="leftABDTrial1">Left ABD Trial 1 (lb)</label><label for="rightABDTrial1" class="rightInput">Right ABD Trial 1 (lb)</label><br>
+            <input type="number" id="leftABDTrial1"> <input type="number" id="rightABDTrial1" class="rightInput"><br><br>
+            <label for="leftABDTrial2">Left ABD Trial 2 (lb)</label><label for="rightABDTrial2" class="rightInput">Right ABD Trial 2 (lb)</label><br>
+            <input type="number" id="leftABDTrial2"> <input type="number" id="rightABDTrial2" class="rightInput"><br><br>
+            <label for="leftABDTrial3">Left ABD Trial 3 (lb)</label><label for="rightABDTrial3" class="rightInput">Right ABD Trial 3 (lb)</label><br>
+            <input type="number" id="leftABDTrial3"><input type="number" id="rightABDTrial3" class="rightInput"><br><br><label for="leftADDTrial1">Left ADD Trial 1 (lb)</label><label for="rightADDTrial1" class="rightInput">Right ADD Trial 1 (lb)</label><br>
+            <input type="number" id="leftADDTrial1"><input type="number" id="rightADDTrial1" class="rightInput"><br><br>
+            <label for="leftADDTrial2">Left ADD Trial 2 (lb)</label><label for="rightADDTrial2" class="rightInput">Right ADD Trial 2 (lb)</label><br>
+            <input type="number" id="leftADDTrial2"><input type="number" id="rightADDTrial2" class="rightInput"><br><br>
+            <label for="leftADDTrial3">Left ADD Trial 3 (lb)</label><label for="rightADDTrial3" class="rightInput">Right ADD Trial 3 (lb)</label><br>
+            <input type="number" id="leftADDTrial3"> <input type="number" id="rightADDTrial3" class="rightInput"><br><br> <label for="leftHipFlex1">Left Hip Flex 1</label><label for="rightHipFlex1" class="rightInput">Right Hip Flex 1</label><br>
+            <input type="number" id="leftHipFlex1"><input type="number" id="rightHipFlex1" class="rightInput"><br><br>
+            <label for="leftHipFlex2">Left Hip Flex 2</label><label for="rightHipFlex2" class="rightInput">Right Hip Flex 2</label><br>
+            <input type="number" id="leftHipFlex2"><input type="number" id="rightHipFlex2" class="rightInput"><br><br>
+            <label for="leftHipFlex3">Left Hip Flex 3</label><label for="rightHipFlex3" class="rightInput">Right Hip Flex 3</label><br>
+            <input type="number" id="leftHipFlex3"><input type="number" id="rightHipFlex3" class="rightInput"><br><br><label for="ERLeft1">ER Left 1</label><label for="ERRight1" class="rightInput">ER Right 1</label><br>
+            <input type="number" id="ERLeft1"><input type="number" id="ERRight1" class="rightInput"><br><br>
+            <label for="ERLeft2">ER Left 2</label><label for="ERRight2" class="rightInput">ER Right 2</label><br>
+            <input type="number" id="ERLeft2"><input type="number" id="ERRight2" class="rightInput"><br><br>
+            <label for="ERLeft3">ER Left 3</label><label for="ERRight3" class="rightInput">ER Right 3</label><br>
+            <input type="number" id="ERLeft3"><input type="number" id="ERRight3" class="rightInput"><br><br><button type="button" id="submit" onclick="validateBFA()">Submit</button>
+            
+        </form>
+        <form id="output" style="display: none">
+            <img src="https://s3.us-east-1.amazonaws.com/contents.newzenler.com/9238/library/omepage-banner60777a0cb0184_lg.png" width="100%" alt="Logo Pic">
+            <p style="font-size:250%;" data-uniqid="1623699858045" class="dynamic-text" data-selector="h1,h2,h3,h4,h5,h6,p"><b><span id="fullName"></span>'s Screening Results</b></p><br><br>
+            <p><b>Station 1 Intake:</b><br>
+            <p>Height: <span id="heightText"></span>cm &emsp;&emsp;Weight: <span id="WeightText"></span>lb</p>
+            <p>Resting BP: <span id="restingBPText"></span>&emsp;&emsp;Resting HR: <span id="restingHRText"></span></p>
+            <br>
+            <p><b>Station 2 Standing structure and flexibility:</b><br>
+            <p>Posture: &emsp;<span id="postureResult"></span></p>
+            <p>Scoliosis: &emsp;<span id="scoliosisResult"></span>&emsp;&emsp;<span id="scoliosisOther"></span></p>
+            <p>Leg Length: &emsp;<span id="legLengthResult"></span>&emsp;&emsp;<span id="legLengthResultOther"></span></p>
+            <p>Knee hypeext: &emsp;<span id="kneeExtOutput"></span></p>
+            <p>Pronation: &emsp;<span id="pronationOutput"></span></p>
+            <p>Hallux Valgus: &emsp;<span id="halluxOutput"></span></p>
+            <p>Squat Range: &emsp;<span id="rangeOutput"></span>&emsp;&emsp; Knee Alignment: &emsp;<span id="squatKneeOutput"></span></p>
+            <p>Forward Bend: &emsp;<span id="forwardBendOutput"></span></p>
+            <p>1st TO Floor &emsp;L: <span id="floorLeft"></span>&emsp;&emsp;R: <span id="floorRight"></span>&emsp;&emsp;Total: <span id="floorTotal"></span>&emsp;&emsp;<span id="turnoutProblem"></span></p>
+            <p>1st TO Discs &emsp;L: <span id="discsLeft"></span>&emsp;&emsp;R: <span id="discsRight"></span>&emsp;&emsp;Total: <span id="discsTotal"></span>&emsp;&emsp;<span id="discsProblem"></span></p>
+            <br>
+            <p><b>Station 3 Balance: </b></p>
+            <p>1-Leg Passe &emsp;L: <span id="passeLeft"></span>&emsp;&emsp;R: <span id="passeRight"></span>&emsp;&emsp;<span id="passeProblem"></span></p>
+            <br>
+            <p><b>Station 4 Flexibilty / Laxity:</b></p>
+            <p>Psoas &emsp;<span id="psoasOutput"></span>&emsp;&emsp;L: <span id="psoasLeftOutput"></span>&emsp;&emsp;R: <span id="psoasRightOutput"></span></p>
+            <p>Rectus Femoris &emsp;<span id="rectusFemorisOutput"></span>&emsp;&emsp; L: <span id="rectusFemorisLeftOutput"></span>&emsp;&emsp;R: <span id="rectusFemorisRightOutput"></span></p>
+            <p>Iliotibial Band(ITB) &emsp;<span id="itbOutput"></span>&emsp;&emsp; L: <span id="itbLeftOutput"></span>&emsp;&emsp;R: <span id="itbRightOutput"></span></p>
+            <p>Hamstrings &emsp; L: <span id="hamstringsLeftOutput"></span>&emsp;&emsp;R: <span id="hamstringsRightOutput"></span>&emsp;&emsp;<span id="hamstringProblem"></span></p>
+            <p>Knee Ext &emsp;<span id="kneeExtOutput"></span>&emsp;&emsp; L: <span id="kneeExtLeftOutput"></span>&emsp;&emsp;R: <span id="kneeExtRightOutput"></span></p>
+            <p>Prone Hip IR/ER &emsp;L: <span id="irLeftOutput"></span>/<span id="erLeftOutput"></span>&emsp;&emsp;R: <span id="irRightOutput"></span>/<span id="erRightOutput"></span>&emsp;<span id="irProblem"></span>&emsp;<span id="erProblem"></span>&emsp;<span id="irerProblem"></span></p>
+            <p>Ankle Plantar Flexion &emsp;L: <span id="leftFlexionOutput"></span>&emsp;&emsp;R: <span id="rightFlexionOutput"></span></p>
+            <p>1st Toe Dorsiflexion &emsp;<span id="toeDorsiflexionOutput"></span>&emsp;&emsp;L: <span id="toeDorsiflexionLeftOutput"></span>&emsp;&emsp;R: <span id="toeDorsiflexionRightOutput"></span></p>
+            <p>Beighton Score: &emsp;<span id="beightonOutput"></span>&emsp;&emsp;Score: <span id="beightonOutputOther"></span></p>
+            <br>
+            <p><b>Station 5 Strength:</b></p>
+            <p>Knee Lift Abdominal Test &emsp;L: <span id="kneeLiftLeftOutput"></span>&emsp;&emsp;R: <span id="kneeLiftRightOutput"></span></p>
+            <p>Abdominal Leg Lowering: <span id="ALLOutput"></span></p>
+            <p>Hip Flexion &emsp;L: <span id="hipFlexionLeftOutput"></span>&emsp;&emsp;R: <span id="hipFlexionRightOutput"></span></p>
+            <p>External Rotation &emsp;L: <span id="externalRotationLeftOutput"></span>&emsp;&emsp;R: <span id="externalRotationRightOutput"></span></p>
+            <p>Internal Rotation &emsp;L: <span id="internalRotationLeftOutput"></span>&emsp;&emsp;R: <span id="internalRotationRightOutput"></span></p>
+            <p>Abduction &emsp;L: <span id="abductionLeftOutput"></span>&emsp;&emsp;R: <span id="abductionRightOutput"></span></p>
+            <p>Adduction &emsp;L: <span id="adductionLeftOutput"></span>&emsp;&emsp;R: <span id="adductionRightOutput"></span></p>
+            <p>Knee Flexion &emsp;L: <span id="kneeFlexionLeftOutput"></span>&emsp;&emsp;R: <span id="kneeFlexionRightOutput"></span></p>
+            <p>Ankle Plantar Flexion(releve) &emsp;L: <span id="ankleFlexionLeftOutput"></span>&emsp;&emsp;R: <span id="ankleFlexionRightOutput"></span></p>
+            <br>
+            <p><b>Station 6 Cardiovascular:</b></p>
+            <p>Step Test</p>
+            <p>Max HR: <span id="maxHROutput"></span> &emsp; &emsp;1 min Recovery: <span id="oneMinRecoveryOutput"></span>&emsp; &emsp;Fitness Category: <span id="fitnessCategoryOutput"></span></p>
+        </form>
+        
+    
+
